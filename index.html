@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodMart</title>
+    <link rel="stylesheet" href="./dist/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="navbar_container_top">
+                <img  src="data:image/png;base64,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"
+                    alt="">
+                <div class="nav_categories_search">
+                    <div class="nav-categories_left">
+                        <h4>All Categories</h4>
+                        <i class="fa-solid fa-arrow-down"></i>
+                    </div>
+                    <div class="nav-categories_middle">
+                        <input type="text" placeholder="Search For products..">
+                    </div>
+                    <div class="nav-categories_right">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                </div>
+                <div class="navbar_container_cart">
+                    <div class="navbar_container_cart-left">
+                        <p>For support ?</p>
+                        <h1>+980-34984089</h1>
+                    </div>
+                    <div class="navbar_container_cart-midlle">
+                        <div><i class="fa-solid fa-user"></i></div>
+                        <div><i class="fa-solid fa-heart"></i></div>
+                        <div><i class="fa-solid fa-cart-shopping"></i></div>
+                    </div>
+                    <div class="navbar_container_cart-right">
+                        <p>Your Card</p>
+                        <h1>$290.00</h1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hide">
+                <div class="navbar_container_bottom helper">
+                    <div class="navbar_container_bottom_left">
+                        <p>shop by Departments</p>
+                    </div>
+                    <ul class="navbar_container_bottom_midlle">
+                        <li class="home">Home</li>
+                        <li>Shope</li>
+                        <li>Page</li>
+                        <li>Blog</li>
+                        <li>Contact</li>
+                        <li>Offers</li>
+                    </ul>
+                    <div class="navbar_container_bottom_right">
+                        <i class="fa-solid fa-gift"></i>
+                        <p>Get Your Coupone Code</p>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="menu-icon">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </header>
+    <!-- section_1 -->
+    <section class="section1">
+        <div class="container">
+            <div>
+                <div class="smooth-background">
+                    <p>100% Natural</p>
+                    <h1>Fresh Smooth & Summer juice</h1>
+                    <p class="bestSelling">Best selling summer juice with natural extracts.</p>
+                </div>
+            </div>
+            <div class="section1-right">
+                <div class="cont1">
+                    <p>20% Off</p>
+                    <h1>Fruits & Vegetables</h1>
+                    <p>shop the category</p>
+                </div>
+                <div class="cont2">
+                    <p>15% Off</p>
+                    <h1>Baked Products</h1>
+                    <p>shop the category</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- section_2 filter -->
+    <section>
+        <div class="container filter-top">
+            <div>
+                <div class="filter-title">
+                    <h2>Trending Products</h2>
+                    <ul>
+                        <li class="li">All</li>
+                        <li class="li">Fruits</li>
+                        <li class="li">Juices</li>
+                        <li class="li">Vegetables</li>
+                    </ul>
+                </div>
+            </div>
+        </div>  
+        <div class="container">
+            <div id="clearRow" class="row">
+                <div class="col-lg-3 juice">
+                    <div class="box">
+                        <div class="box-img">
+                            <img src="https://atukajikuridze.github.io/FoodMart/static/media/section3-1.d7ad500783419a265b49.png" alt="">
+                        </div>
+                        <div class="box-item">
+                            <h5>Fresh Melon Juice</h5>
+                            <div class="box-item_star">
+                                <p>1 UNIT</p>
+                                <p><span>⭐️</span>4.5</p>
+                            </div>
+                            <p class="price">$18.00</p>
+                            <div class="plus">
+                                <div class="plus-item">
+                                    <button class="minus">-</button>
+                                    <p class="equal">0</p>
+                                    <button class="pluss">+</button>
+                                </div>
+                                <div class="plus-torlley">
+                                    <p>Add To Cart <i class="fa-solid fa-cart-shopping"></i></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 vegetables">
+                    <div class="box">
+                        <div class="box-img">
+                            <img src="https://atukajikuridze.github.io/FoodMart/static/media/section3-2.f437647a4f1d2e27a860.png" alt="">
+                        </div>
+                        <div class="box-item">
+                            <h5>Fresh local tomatoes</h5>
+                            <div class="box-item_star">
+                                <p>1 UNIT</p>
+                                <p><span>⭐️</span>4</p>
+                            </div>
+                            <p class="price">$5.00</p>
+                            <div class="plus">
+                                <div class="plus-item">
+                                    <button class="minus">-</button>
+                                    <p class="equal">0</p>
+                                    <button class="pluss">+</button>
+                                </div>
+                                <div class="plus-torlley">
+                                    <p>Add To Cart <i class="fa-solid fa-cart-shopping"></i></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 vegetables">
+                    <div class="box">
+                        <div class="box-img">
+                            <img src="https://atukajikuridze.github.io/FoodMart/static/media/section3-3.c39bcd301b9517dadff6.png" alt="">
+                        </div>
+                        <div class="box-item">
+                            <h5>Fresh Cucumber</h5>
+                            <div class="box-item_star">
+                                <p>1 UNIT</p>
+                                <p><span>⭐️</span>4.5</p>
+                            </div>
+                            <p class="price">$6.00</p>
+                            <div class="plus">
+                                <div class="plus-item">
+                                    <button class="minus">-</button>
+                                    <p class="equal">0</p>
+                                    <button class="pluss">+</button>
+                                </div>
+                                <div class="plus-torlley">
+                                    <p>Add To Cart <i class="fa-solid fa-cart-shopping"></i></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 juice">
+                    <div class="box">
+                        <div class="box-img">
+                            <img src="https://atukajikuridze.github.io/FoodMart/static/media/section3-4.b6d3489c6e65c3b1de3e.png" alt="">
+                        </div>
+                        <div class="box-item">
+                            <h5>Heinz tomato ketchup</h5>
+                            <div class="box-item_star">
+                                <p>1 UNIT</p>
+                                <p><span>⭐️</span>5</p>
+                            </div>
+                            <p class="price">$9.00</p>
+                            <div class="plus">
+                                <div class="plus-item">
+                                    <button class="minus">-</button>
+                                    <p class="equal">0</p>
+                                    <button class="pluss">+</button>
+                                </div>
+                                <div class="plus-torlley">
+                                    <p>Add To Cart <i class="fa-solid fa-cart-shopping"></i></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 Fruits">
+                    <div class="box">
+                        <div class="box-img">
+                            <img src="https://atukajikuridze.github.io/FoodMart/static/media/section3-5.9ca8894d7eeac32b36e6.png" alt="">
+                        </div>
+                        <div class="box-item">
+                            <h5>Local Avocado</h5>
+                            <div class="box-item_star">
+                                <p>1 UNIT</p>
+                                <p><span>⭐️</span>3.5</p>
+                            </div>
+                            <p class="price">$12.00</p>
+                            <div class="plus">
+                                <div class="plus-item">
+                                    <button class="minus">-</button>
+                                    <p class="equal">0</p>
+                                    <button class="pluss">+</button>
+                                </div>
+                                <div class="plus-torlley">
+                                    <p>Add To Cart <i class="fa-solid fa-cart-shopping"></i></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 vegetables">
+                    <div class="box">
+                        <div class="box-img">
+                            <img src="https://atukajikuridze.github.io/FoodMart/static/media/section3-6.157460159aca1a14a8a6.png" alt="">
+                        </div>
+                        <div class="box-item">
+                            <h5>Red Peper</h5>
+                            <div class="box-item_star">
+                                <p>1 UNIT</p>
+                                <p><span>⭐️</span>4.5</p>
+                            </div>
+                            <p class="price">$6.00</p>
+                            <div class="plus">
+                                <div class="plus-item">
+                                    <button class="minus">-</button>
+                                    <p class="equal">0</p>
+                                    <button class="pluss">+</button>
+                                </div>
+                                <div class="plus-torlley">
+                                    <p>Add To Cart <i class="fa-solid fa-cart-shopping"></i></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 Fruits">
+                    <div class="box">
+                        <div class="box-img">
+                            <img src="https://atukajikuridze.github.io/FoodMart/static/media/section3-7.23c378800f50b2fef461.png" alt="">
+                        </div>
+                        <div class="box-item">
+                            <h5>Fresh Bananas</h5>
+                            <div class="box-item_star">
+                                <p>1 UNIT</p>
+                                <p><span>⭐️</span>5</p>
+                            </div>
+                            <p class="price">$8.00</p>
+                            <div class="plus">
+                                <div class="plus-item">
+                                    <button class="minus">-</button>
+                                    <p class="equal">0</p>
+                                    <button class="pluss">+</button>
+                                </div>
+                                <div class="plus-torlley">
+                                    <p>Add To Cart <i class="fa-solid fa-cart-shopping"></i></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 juice">
+                    <div class="box">
+                        <div class="box-img">
+                            <img src="https://atukajikuridze.github.io/FoodMart/static/media/section3-8.55f0b24b49b80cf7d013.png" alt="">
+                        </div>
+                        <div class="box-item">
+                            <h5>Fresh Melon Juice</h5>
+                            <div class="box-item_star">
+                                <p>1 UNIT</p>
+                                <p><span>⭐️</span>3.5</p>
+                            </div>
+                            <p class="price">$14.00</p>
+                            <div class="plus">
+                                <div class="plus-item">
+                                    <button class="minus">-</button>
+                                    <p class="equal">0</p>
+                                    <button class="pluss">+</button>
+                                </div>
+                                <div class="plus-torlley">
+                                    <p>Add To Cart <i class="fa-solid fa-cart-shopping"></i></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 juice">
+                    <div class="box">
+                        <div class="box-img">
+                            <img src="https://atukajikuridze.github.io/FoodMart/static/media/section3-9.501700aef2e1a4113da4.png" alt="">
+                        </div>
+                        <div class="box-item">
+                            <h5>Pure Dairy milk</h5>
+                            <div class="box-item_star">
+                                <p>1 UNIT</p>
+                                <p><span>⭐️</span>4.5</p>
+                            </div>
+                            <p class="price">$17.00</p>
+                            <div class="plus">
+                                <div class="plus-item">
+                                    <button class="minus">-</button>
+                                    <p class="equal">0</p>
+                                    <button class="pluss">+</button>
+                                </div>
+                                <div class="plus-torlley">
+                                    <p>Add To Cart <i class="fa-solid fa-cart-shopping"></i></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 juice">
+                    <div class="box"> 
+                        <div class="box-img">
+                            <img src="https://www.bigbasket.com/media/uploads/p/xl/1206985-2_1-minute-maid-fruit-drink-pulpy-orange.jpg" alt="">
+                        </div>
+                        <div class="box-item">
+                            <h5>Honest Kids Juice</h5>
+                            <div class="box-item_star">
+                                <p>1 UNIT</p>
+                                <p><span>⭐️</span>4.5</p>
+                            </div>
+                            <p class="price">$15.00</p>
+                            <div class="plus">
+                                <div class="plus-item">
+                                    <button class="minus">-</button>
+                                    <p class="equal">0</p>
+                                    <button class="pluss">+</button>
+                                </div>
+                                <div class="plus-torlley">
+                                    <p>Add To Cart <i class="fa-solid fa-cart-shopping"></i></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 Fruits">
+                    <div class="box">
+                        <div class="box-img">
+                            <img src="https://atukajikuridze.github.io/FoodMart/static/media/section3-12.744122455dc581cf291f.png" alt="">
+                        </div>
+                        <div class="box-item">
+                            <h5>Strawberry</h5>
+                            <div class="box-item_star">
+                                <p>1 UNIT</p>
+                                <p><span>⭐️</span>5</p>
+                            </div>
+                            <p class="price">$11.00</p>
+                            <div class="plus">
+                                <div class="plus-item">
+                                    <button class="minus">-</button>
+                                    <p class="equal">0</p>
+                                    <button class="pluss">+</button>
+                                </div>
+                                <div class="plus-torlley">
+                                    <p>Add To Cart <i class="fa-solid fa-cart-shopping"></i></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 Fruits">
+                    <div class="box">
+                        <div class="box-img">
+                            <img src="https://atukajikuridze.github.io/FoodMart/static/media/section3-10.8cd4d23fd22e753c8942.png" alt="">
+                        </div>
+                        <div class="box-item">
+                            <h5>Raspberries</h5>
+                            <div class="box-item_star">
+                                <p>1 UNIT</p>
+                                <p><span>⭐️</span>3.5</p>
+                            </div>
+                            <p class="price">$9.00</p>
+                            <div class="plus">
+                                <div class="plus-item">
+                                    <button class="minus">-</button>
+                                    <p class="equal">0</p>
+                                    <button class="pluss">+</button>
+                                </div>
+                                <div class="plus-torlley">
+                                    <p>Add To Cart <i class="fa-solid fa-cart-shopping"></i></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- section_3 card -->
+    <section class="cards">
+        <div class="container">
+            <div class="cards-sort">
+                <div class="left-card">
+                    <div>
+                        <p>Upto 15% Off</p>
+                        <h3>Luxa Dark Chocolate</h3>
+                        <h4>Chocolate is only the happiness that you can eat.</h4>
+                        <button>SHOP IT</button>
+                    </div>
+                    <div>
+                        <img src="https://atukajikuridze.github.io/FoodMart/static/media/section4-leftside-cardimage.3f2f9a08a264cf179306.png" alt="">
+                    </div>
+                </div>
+                <div class="right-card">
+                    <div>
+                        <p>Upto 15% Off</p>
+                        <h3>Luxa Dark Chocolate</h3>
+                        <h5>Chocolate is only the happiness that you can eat.</h5>
+                        <button>SHOP IT</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- section_4 forms -->
+    <section class="section_forms">
+        <div class="container">
+            <div class="left-form">
+                <h1>Get <span>20% discount</span> on your first purchase</h1>
+                <p>Just Sign Up & Register it now to become member of Templates Jungle.</p>
+            </div>
+            <div class="right-form">
+                <div>
+                    <label for="text">Email adress</label>
+                    <div class="forms-style">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input 
+                        type="email"
+                        placeholder="Enter Email adress...">
+                    </div>
+                </div>
+                <div>
+                    <label for="text">Password</label>
+                    <div class="forms-style">
+                        <i class="fa-solid fa-lock"></i>
+                        <input 
+                        type="password" 
+                        placeholder="Creat a Password...">
+                    </div>
+                </div>
+                <div>
+                    <label for="text">Repeat Password</label>
+                    <div class="forms-style">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password"
+                        placeholder="Repeat Password...">
+                    </div>
+                </div>
+                <button>REGISTER IT NOW</button>
+            </div>
+        </div>
+    </section>
+    <!-- footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-media-links">
+                    <img src="data:image/png;base64,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" alt="">
+                    <div class="links">
+                        <div><i class="fa-brands fa-facebook"></i></div>
+                        <div><i class="fa-brands fa-twitter"></i></div>
+                        <div><i class="fa-brands fa-instagram"></i></div>
+                        <div><i class="fa-brands fa-youtube"></i></div>
+                        <div><i class="fa-brands fa-telegram"></i></div>
+                    </div>
+                </div>
+                <div class="dd">
+                    <h1>quick links</h1>
+                    <p>Home</p>
+                    <p>About us</p>
+                    <p>Offers</p>
+                    <p>Services</p>
+                    <p>Contact Us</p>
+                </div>
+                <div class="dd">
+                    <h1>How it work</h1>
+                    <p>our packages</p>
+                    <p>promotions</p>
+                    <p>refer a friend</p>
+                    <p>May u need help</p>
+                    <p>Trust is better</p>
+                </div>
+                <div class="dd">
+                    <h1>Help Centre</h1>
+                    <p>Payments</p>
+                    <p>Shipping</p>
+                    <p>Product returns</p>
+                    <p>FAQs</p>
+                    <p>Checkout</p>
+                    <p>other Issues</p>
+                </div>
+                <div class="dd">
+                    <h1>Feature</h1>
+                    <p>Health Product</p>
+                    <p>Free delivery</p>
+                    <p>Lower Price</p>
+                    <p>From Kakheti fields</p>
+                    <p>Kind staff</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>
+                    <p>© 2022 TemplatesJungle. All rights reserved.</p>
+                </div>
+                <div>
+                    <p>Design by TemplatesJungle</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./script.js"></script>
+</body>
+</html>
